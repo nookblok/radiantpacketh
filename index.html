@@ -1,65 +1,66 @@
-<!-- HERO SECTION - Clean Neon Version -->
+<!-- HERO SECTION - Style mirip Lobster NFT -->
 <section style="position: relative; min-height: 100vh; background: #0a001f; 
-                display: flex; flex-direction: column; align-items: center; 
-                justify-content: center; text-align: center; color: white; 
-                padding: 40px 20px; overflow: hidden;">
+                display: flex; align-items: center; justify-content: center; 
+                text-align: center; color: white; overflow: hidden; padding: 20px;">
 
-    <!-- Subtle neon background pattern -->
-    <div style="position: absolute; inset: 0; 
-                background-image: 
-                    radial-gradient(circle, rgba(255,0,255,0.15) 1.5px, transparent 3px),
-                    radial-gradient(circle, rgba(0,255,255,0.15) 1.5px, transparent 3px);
-                background-size: 70px 70px; opacity: 0.5; z-index: 1;"></div>
+    <!-- Background subtle neon -->
+    <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(255,0,255,0.08) 0%, transparent 70%); z-index: 1;"></div>
 
-    <!-- Banner Image -->
+    <!-- Main Banner Image (full width feel) -->
     <img src="/images/radiantpack1.png" 
          alt="Radiant Pack Banner" 
-         style="max-width: 95%; height: auto; max-height: 440px; 
-                margin-bottom: 35px; z-index: 2; 
-                filter: drop-shadow(0 0 50px #ff00ff); border-radius: 16px;">
+         style="position: relative; z-index: 2; 
+                max-width: 100%; max-height: 580px; 
+                width: auto; height: auto; 
+                filter: drop-shadow(0 0 60px rgba(255, 0, 255, 0.6)); 
+                border-radius: 12px; margin-bottom: 30px;">
 
-    <!-- Logo -->
-    <img src="/images/radiantpack2.png" 
-         alt="Radiant Pack Logo" 
-         style="width: 200px; margin-bottom: 25px; z-index: 2; 
-                filter: drop-shadow(0 0 30px #00ffff);">
+    <!-- Overlay Content -->
+    <div style="position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); 
+                z-index: 3; width: 90%; max-width: 700px;">
 
-    <h1 style="font-size: 3.5rem; margin: 10px 0 12px; z-index: 2; letter-spacing: -1px;
-               text-shadow: 0 0 30px #ff00ff, 0 0 60px #00ffff;">
-        RADIANT PACK ETH
-    </h1>
+        <!-- Logo -->
+        <img src="/images/radiantpack2.png" 
+             alt="Radiant Pack Logo" 
+             style="width: 210px; margin-bottom: 20px; 
+                    filter: drop-shadow(0 0 25px #00ffff);">
 
-    <p style="font-size: 1.6rem; margin: 8px 0 30px; z-index: 2; max-width: 620px;">
-        100 Glowing Neon Dancing Cats & Creatures
-    </p>
+        <h1 style="font-size: 3.8rem; margin: 0 0 15px 0; letter-spacing: -2px;
+                   text-shadow: 0 0 40px #ff00ff, 0 0 70px #00ffff;">
+            RADIANT PACK ETH
+        </h1>
 
-    <p style="font-size: 1.25rem; margin-bottom: 45px; z-index: 2; opacity: 0.95;">
-        Free Mint on Ethereum • Limited Supply: 100
-    </p>
+        <p style="font-size: 1.65rem; margin: 0 0 35px 0; 
+                  text-shadow: 0 0 20px #000;">
+            100 Glowing Neon Dancing Cats & Creatures
+        </p>
 
-    <!-- Tombol -->
-    <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; z-index: 2;">
-        
-        <!-- Follow Button -->
-        <a href="https://x.com/radiantpacketh" 
-           target="_blank"
-           style="background: #000; color: white; 
-                  padding: 15px 34px; border-radius: 50px; 
-                  font-size: 1.28rem; text-decoration: none; 
-                  border: 2.5px solid #1DA1F2; 
-                  box-shadow: 0 0 25px #1DA1F2;">
-            Follow @radiantpacketh
-        </a>
+        <p style="font-size: 1.3rem; margin-bottom: 40px; opacity: 0.95;">
+            Free Mint on Ethereum • Limited Supply: 100
+        </p>
 
-        <!-- Coming Soon Button -->
-        <a href="#" 
-           style="background: linear-gradient(90deg, #ff00ff, #00ffff); 
-                  color: #000; font-weight: bold; 
-                  padding: 15px 42px; border-radius: 50px; 
-                  font-size: 1.28rem; text-decoration: none; 
-                  box-shadow: 0 0 35px #ff00ff; 
-                  cursor: not-allowed; opacity: 0.9;">
-            Coming Soon
-        </a>
+        <!-- Buttons - mirip Lobster NFT style -->
+        <div style="display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;">
+            
+            <a href="https://x.com/radiantpacketh" 
+               target="_blank"
+               style="background: rgba(0, 0, 0, 0.85); color: white; 
+                      padding: 16px 38px; border-radius: 9999px; 
+                      font-size: 1.3rem; text-decoration: none; 
+                      border: 2px solid #1DA1F2; 
+                      box-shadow: 0 0 30px #1DA1F2; font-weight: 600;">
+                Follow @radiantpacketh
+            </a>
+
+            <a href="#" 
+               style="background: linear-gradient(90deg, #ff00ff, #00ffff); 
+                      color: #000; font-weight: bold; 
+                      padding: 16px 46px; border-radius: 9999px; 
+                      font-size: 1.3rem; text-decoration: none; 
+                      box-shadow: 0 0 40px #ff00ff; 
+                      cursor: not-allowed; opacity: 0.9;">
+                Coming Soon
+            </a>
+        </div>
     </div>
 </section>
