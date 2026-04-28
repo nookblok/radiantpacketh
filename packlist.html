@@ -1,1 +1,167 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packlist Checker - Radiant Pack ETH</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #0a0a1f, #1a0033);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: white;
+      min-height: 100vh;
+    }
+    .checker {
+      max-width: 540px;
+      margin: 80px auto;
+      padding: 45px 30px;
+      background: rgba(15,15,40,0.95);
+      border: 2px solid #00ff9d;
+      border-radius: 16px;
+      text-align: center;
+    }
+    h1 {
+      color: #00ff9d;
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+    p.subtitle {
+      color: #aaccff;
+      font-size: 18px;
+      margin-bottom: 35px;
+    }
+    input {
+      width: 90%;
+      padding: 16px;
+      font-size: 17px;
+      background: #111;
+      color: white;
+      border: 2px solid #00ff9d;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      outline: none;
+    }
+    button {
+      padding: 16px 70px;
+      font-size: 18px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #00ff9d, #00cc77);
+      color: black;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #00ff9d, #00e68a);
+      transform: scale(1.05);
+    }
+    #result {
+      margin-top: 35px;
+      font-size: 20px;
+      font-weight: bold;
+      min-height: 70px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="checker">
+  <h1>PACKLIST CHECKER</h1>
+  <p class="subtitle">Enter your Ethereum wallet address</p>
+
+  <input 
+    type="text" 
+    id="walletAddress" 
+    placeholder="0x1234...abcd">
+
+  <button onclick="checkPacklist()">CHECK PACKLIST</button>
+
+  <p id="result"></p>
+</div>
+
+<script>
+const whitelist = [
+  "0x51e3161b8Fbbe705564990Cc63ccEee63B6E372B",
+  "0xD7A433D9369B61824C8587c7A30AF9E06E0d4ae5",
+  "0x05fA2acb4Ad879a86d9096a0543875154339d5c0",
+  "0x3a3663cf66ff94646c7d3156d853029e5744142d",
+  "0x28f1DD1c0322Ab37FC92445c80CDE829ad69A2aD",
+  "0x419fea056f77f9db6bbbc49889b4a8bc98d389f1",
+  "0xbb58da222d942349958402a307746e8fc630e1a1",
+  "0x23ac93ed8047f683fae8932ae18528f5191749c9",
+  "0xdff6bc1891c4dc26f36377d81deb3f04e4d8f204",
+  "0x8b85f8fe5f01ac24b126a424f44059045c1fc785",
+  "0x05265e616bD80ac6387609fA5692a15d453E74dC",
+  "0xb61a512c4d2b42325b8a3bba7b2f3b251be9dc14",
+  "0x1f407f9a66bccff4650eeea146afde6c6f86353c",
+  "0x3f639c65d84ef151a4e759db6f59c9319374efa1",
+  "0x8Bc0291B3cb8bA3e01725053A723d910BEdb987e",
+  "0x7De102A692bDcA68714D07C0BF3f99D430Bd8930",
+  "0x7BA51f8DDa05bE85F46cBE086505d516b40f9083",
+  "0xb8423794f10718eB37CE588282B3c7B21B2e60EA",
+  "0x962bbc0946652f858b8bc0c6c7e49b0f54322d4d",
+  "0x310e1B1cfd0265080e1b4c97BBf2797051766B42",
+  "0x6be40ed793b287be509e739bb823f52142bbb8a4",
+  "0x35C44Cf5f6b11e3534dBe7b58B01d4aa88412b88",
+  "0xC7f99a56A492D69a5F53E02436280C9A2B503E24",
+  "0xE68E5aD811Cda389576A7346aa91e9D912394490",
+  "0x01BDea1495C737Fa416B337a0F4074ED68c730a6",
+  "0xcD204651Ea1977722D66dE58984774b39ae5c95E",
+  "0x7aFcE179e266359e619C978cb20B7F5876cBC057",
+  "0x8d894500675c860d86619cc77742b8dca7ef74e2",
+  "0xaD460523289D2a00f19776e8835CC475c05D654b",
+  "0x60e9f369e9e71585c537c90522b0070732c63152",
+  "0x9fb305fbd603d8f7590ea73581c8f41f408d2010",
+  "0xbc8744370bcb6d5abf5de8b4086ecfbb4c5629c3",
+  "0x7aBFeeF55Cf85978d4D5d6e1a387D969E8a12aB8",
+  "0xa7ff00056821a5e74a60da51aa5ef2e89437b424",
+  "0x3Eaeda07Cc1e1020B7968255F0a430C04ECfA948",
+  "0x8ad557E25766C99e28E6Fe8e3e0FBf87e452B23D",
+  "0x50f9CC9BAC386dD99624662135187713f1744BD4",
+  "0x55933bBE5c95DAD58be3272A1e5e413238C0405A",
+  "0x991A584F5a40d5834C2170aDb23d740b16337C95",
+  "0xd8d667922f74AD57c504f030eBe2d7dc5d889b80",
+  "0x3e96c9a251a4f0121eb4210606ae1bc8e469bbcb",
+  "0x2a2b676d146093435424f67231289eb61bbfb50e",
+  "0x82d8B9d4c630dD95833a7a565D575e37Ff72C7F0",
+  "0x87631B45877794f9cdd50a70c827403e3C36d072",
+  "0xca3f95ae40abd59326618c76004dccd75e5edf7e",
+  "0xAC9E29606D4B609C8DE3A42F3aE06190D71107Ba",
+  "0x87e0356cffc8b7e37c62122c59dc8b3cb0384e55",
+  "0x23776e53ac37883f4128ab0a0dd075427d1b097a",
+  "0xd30cb70cf9e2feb21bd7cd47a134e1ca40fe1765",
+  "0x6927a0d2A5e1cE3e5046A3D1D1B4Dab7CBE7f41C",
+  "0xCa2D88040DD7bf6C41D81fC1d7297cFB9272F00b",
+  "0x93da4384943c42482886f430AA0d55e5F439aA55",
+  "0x9BbB557e55AdFe4918A09d8A88ca8915034Ad168",
+  "0xd085D21Ed230cfA47E0Ec64d69877200749CeF4E"
+];
+
+function checkPacklist() {
+  const input = document.getElementById("walletAddress").value.trim();
+  const result = document.getElementById("result");
+
+  if (input === "") {
+    result.innerHTML = "❌ Please enter your wallet address";
+    result.style.color = "#ff6666";
+    return;
+  }
+
+  const address = input.toLowerCase();
+  const isWhitelisted = whitelist.some(addr => addr.toLowerCase() === address);
+
+  if (isWhitelisted) {
+    result.innerHTML = "✅ Congratulations! Your address is in the Packlist";
+    result.style.color = "#00ff9d";
+  } else {
+    result.innerHTML = "❌ Sorry, your address is not in the Packlist yet";
+    result.style.color = "#ff6666";
+  }
+}
+</script>
+
+</body>
+</html>
