@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +54,6 @@
       cursor: pointer;
     }
     button:hover {
-      background: linear-gradient(90deg, #00ff9d, #00e68a);
       transform: scale(1.05);
     }
     #result {
@@ -137,7 +135,44 @@ const whitelist = [
   "0xCa2D88040DD7bf6C41D81fC1d7297cFB9272F00b",
   "0x93da4384943c42482886f430AA0d55e5F439aA55",
   "0x9BbB557e55AdFe4918A09d8A88ca8915034Ad168",
-  "0xd085D21Ed230cfA47E0Ec64d69877200749CeF4E"
+  "0xd085D21Ed230cfA47E0Ec64d69877200749CeF4E",
+  "0xf2e4a05cBae83fb3173BECEe7a31686e8A6ae3Ce",
+  "0x55f5a1af6a61dcef2e5841bb79c5ae9cdca8b88f",
+  "0x4d411b7929c37d4d7e2ba14b20225179c4748d49",
+  "0x82e2060a6872EA88608a1c5eDF61e7b3A5C5EabC",
+  "0xC143e085621Af6b82ba18De3dd794B31179f4140",
+  "0x1A4Df5e5056C1B9F8F47fa3FA7F74182035639ef",
+  "0x6830af36699b3ae1a9e9b3cb5c7dda9ea1124ac2",
+  "0x1deed111acd4b0817d59c74aefdd3e2011f5fbc8",
+  "0xb720b3399ec52cacee5f0bde81b7ae29ff1ae5b6",
+  "0x5bf09b5b36b8844d0a357e9dd4bb008aad3be460",
+  "0x6Bb3Dcb59686C422Cb9B78BEcce2F714B8Dae541",
+  "0xf758FD6452578A26a4F6C122b625dC8D9ef0EDcd",
+  "0x50F702d10f9f56C111d90941D0594a64a4d47491",
+  "0xacfc94a5c4ac40165cefc92c7121e8f8829ff1d2",
+  "0x28ef16c3f0477ee06b1d9ae6884da90ce2e3e618",
+  "0x59125cd6324ce51b501ccfb2096e7de17ad60a80",
+  "0xa1f8626adcd51f4ce0fe9efc02c056f089a109d9",
+  "0xad8d14be2bfac394fe13b79c873e068a16bd8c77",
+  "0x01da3c30afb696c5370fb30ebd98bf3532a1a609",
+  "0xc31a9d799a6ff922003910898720cdec2840e9dc",
+  "0x6cd4c5f7df6cde2fe8d04bd902e6940a63d53b39",
+  "0x61c8D51B4Be9e3544eD5A55683d8596069279BB9",
+  "0xa361c417e36ed35fb9dcb5a83f8183f7879f9b9b",
+  "0xDF77f7716DAc55460D7F979feF3d9a930a5D06d1",
+  "0x584Ae94Fd9177d42F1808a0897675Cd157B11E2c",
+  "0x2912bb193e5a8bfa49646bcfd381870ca23d8620",
+  "0x7BEE10a601D3473C524e4E5E94f1DE2911f1Be12",
+  "0x86209f182bebc2cfb00fe62473119d47c7d43113",
+  "0xae5f49c88fc6944761946207676b6cd463523d31",
+  "0xb60272ceee776e96896eacd196618ab52cd9c833",
+  "0xc570c098b2cf37c13dbe06cffe140f08b8c6d6e3",
+  "0x17d50b148856855273fd0669e94899d2ceb08e58",
+  "0xec5a97cd46035a21f0ceef446b1bd30bb79e7a6d",
+  "0xa1dfa784be7a1641738418de65addb5265b3550f",
+  "0x3773bcf38078a2c220f7d9073a3610e13bab3f66",
+  "0x79905a92b3a01010c55d126b60179f20d188a80f",
+  "0xdbbd65026a07cfbfa1aa92744e4d69951686077d"
 ];
 
 function checkPacklist() {
@@ -151,9 +186,9 @@ function checkPacklist() {
   }
 
   const address = input.toLowerCase();
-  const isWhitelisted = whitelist.some(addr => addr.toLowerCase() === address);
+  const isInPacklist = whitelist.some(addr => addr.toLowerCase() === address);
 
-  if (isWhitelisted) {
+  if (isInPacklist) {
     result.innerHTML = "✅ Congratulations! Your address is in the Packlist";
     result.style.color = "#00ff9d";
   } else {
